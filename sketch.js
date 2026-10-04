@@ -1,7 +1,5 @@
 const r = require("raylib");
 const d = require("./detector_behaviour");
-const windowWidth = 800;
-const windowHeight = 800;
 
 function running() {
   return !r.WindowShouldClose();
@@ -9,6 +7,8 @@ function running() {
 
 function setup() {
   //Creating widths
+  const windowWidth = 800;
+  const windowHeight = 800;
   const start2 = windowWidth / 2;
   const d1width = 20;
   const d2width = 30;
@@ -43,30 +43,35 @@ function setup() {
   return { d1, d2, d3, p1, p2, p3 };
 }
 
-function update(data) {
-  const d1 = data.d1;
-  const d2 = data.d2;
-  const d3 = data.d3;
+function update(world) {
+  const d1 = world.d1;
+  const d2 = world.d2;
+  const d3 = world.d3;
+
+  const p1 = world.p1;
+  const p2 = world.p2;
+  const p3 = world.p3;
+
+  d2.color = d.changeColorV(d2, p1, p2);
+  d1.color = d.changeColorV(d1, p1, p2);
+  d3.color = d.changeColorH(d3, p3, p3);
 
   d1.start = d.traverseDetectorV(d1);
   d2.start = d.traverseDetectorV(d2);
   d3.y = d.traverseDetectorH(d3);
 }
 
-function draw(data) {
-  const d1 = data.d1;
-  const d2 = data.d2;
-  const d3 = data.d3;
+function draw(world) {
+  const d1 = world.d1;
+  const d2 = world.d2;
+  const d3 = world.d3;
 
-  const p1 = data.p1;
-  const p2 = data.p2;
-  const p3 = data.p3;
+  const p1 = world.p1;
+  const p2 = world.p2;
+  const p3 = world.p3;
 
   r.BeginDrawing();
   r.ClearBackground(r.BLACK);
-  d2.color = d.changeColorV(d2, p1, p2);
-  d1.color = d.changeColorV(d1, p1, p2);
-  d3.color = d.changeColorH(d3, p3, p3);
 
   d.drawParticles(p1);
   d.drawParticles(p2);
