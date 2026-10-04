@@ -62,24 +62,16 @@ function update(world) {
 }
 
 function draw(world) {
-  const d1 = world.d1;
-  const d2 = world.d2;
-  const d3 = world.d3;
-
-  const p1 = world.p1;
-  const p2 = world.p2;
-  const p3 = world.p3;
-
   r.BeginDrawing();
   r.ClearBackground(r.BLACK);
 
-  d.drawParticles(p1);
-  d.drawParticles(p2);
-  d.drawParticles(p3);
+  d.drawParticles(world.p1);
+  d.drawParticles(world.p2);
+  d.drawParticles(world.p3);
 
-  d.drawDetectors(d1);
-  d.drawDetectors(d2);
-  d.drawDetectors(d3);
+  d.drawDetectors(world.d1);
+  d.drawDetectors(world.d2);
+  d.drawDetectors(world.d3);
 
   r.EndDrawing();
 }
