@@ -52,9 +52,9 @@ function update(world) {
   const p2 = world.p2;
   const p3 = world.p3;
 
-  d2.color = d.changeColorV(d2, p1, p2);
-  d1.color = d.changeColorV(d1, p1, p2);
-  d3.color = d.changeColorH(d3, p3, p3);
+  d2.color = d.chooseColorV(d2, p1, p2);
+  d1.color = d.chooseColorV(d1, p1, p2);
+  d3.color = d.chooseColorH(d3, p3, p3);
 
   d1.start = d.traverseDetectorV(d1);
   d2.start = d.traverseDetectorV(d2);

@@ -66,7 +66,7 @@ function detectorDetectsParticleV(d, p) {
   return d.start + d.width >= p.start && d.start <= p.start + p.width;
 }
 
-function changeColorV(d, pOne, pTwo) {
+function chooseColorV(d, pOne, pTwo) {
   return detectorDetectsParticleV(d, pOne) || detectorDetectsParticleV(d, pTwo)
     ? r.RED
     : r.WHITE;
@@ -77,7 +77,7 @@ function detectorDetectsParticleH(d, p) {
   return d.y + d.height >= p.y && d.y <= p.y + p.height;
 }
 
-function changeColorH(d, pOne, pTwo) {
+function chooseColorH(d, pOne, pTwo) {
   return detectorDetectsParticleH(d, pOne) || detectorDetectsParticleH(d, pTwo)
     ? r.RED
     : r.WHITE;
@@ -95,17 +95,11 @@ function drawDetectors(d) {
 
 module.exports = {
   createDetector,
-  detectorVelocityH,
-  hasReachedBoundsH,
-  createParticle: createParticle,
-  detectorDetectsParticleV,
+  createParticle,
   traverseDetectorH,
-  changeColorV,
+  chooseColorV,
   drawParticles,
   drawDetectors,
-  detectorVelocityV,
-  hasReachedBoundsV,
   traverseDetectorV,
-  detectorDetectsParticleH,
-  changeColorH,
+  chooseColorH,
 };
