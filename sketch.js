@@ -33,9 +33,9 @@ function setup() {
   );
   const d3 = d.createDetector(0, 0, windowWidth, d3height, uB3, 0, 5, r.WHITE);
 
-  const p1 = d.createParticle(300, 0, 30, windowHeight, r.BLUE);
-  const p2 = d.createParticle(600, 0, 30, windowHeight, r.BLUE);
-  const p3 = d.createParticle(0, 250, windowWidth, 40, r.BLUE);
+  const p1 = d.createParticle(300, 0, 30, windowHeight);
+  const p2 = d.createParticle(600, 0, 30, windowHeight);
+  const p3 = d.createParticle(0, 250, windowWidth, 40);
 
   r.SetTraceLogLevel(r.LOG_NONE);
   r.InitWindow(windowWidth, windowHeight, "particle_detector");

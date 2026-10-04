@@ -23,13 +23,12 @@ function createDetector(
 }
 
 // creating particle
-function createParticle(start, y, width, height, color) {
+function createParticle(start, y, width, height) {
   return {
     start,
     y,
     width,
     height,
-    color,
   };
 }
 
@@ -43,13 +42,9 @@ function hasReachedBoundsV(d) {
   return d.start < d.lowerBound || d.start > d.upperBound;
 }
 
-function moveDetectorV(d) {
-  return d.start + d.velocity;
-}
-
 function traverseDetectorV(d) {
   d.velocity = detectorVelocityV(d);
-  return moveDetectorV(d);
+  return d.start + d.velocity;
 }
 
 //for moving horizontal detector
@@ -61,13 +56,9 @@ function hasReachedBoundsH(d) {
   return d.y < d.lowerBound || d.y > d.upperBound;
 }
 
-function moveDetectorH(d) {
-  return d.y + d.velocity;
-}
-
 function traverseDetectorH(d) {
   d.velocity = detectorVelocityH(d);
-  return moveDetectorH(d);
+  return d.y + d.velocity;
 }
 
 //Vertical detector detecting particle
@@ -106,7 +97,6 @@ module.exports = {
   createDetector,
   detectorVelocityH,
   hasReachedBoundsH,
-  moveDetectorH,
   createParticle: createParticle,
   detectorDetectsParticleV,
   traverseDetectorH,
@@ -115,7 +105,6 @@ module.exports = {
   drawDetectors,
   detectorVelocityV,
   hasReachedBoundsV,
-  moveDetectorV,
   traverseDetectorV,
   detectorDetectsParticleH,
   changeColorH,
