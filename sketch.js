@@ -86,9 +86,7 @@ function draw(data) {
   r.ClearBackground(r.BLACK);
   d2.color = d.changeColorV(d2, p1, p2);
   d1.color = d.changeColorV(d1, p1, p2);
-  d3.color = d.changeCo;
-
-  lorH(d3, p3, p3);
+  d3.color = d.changeColorH(d3, p3, p3);
 
   d.drawParticles(p1);
   d.drawParticles(p2);
