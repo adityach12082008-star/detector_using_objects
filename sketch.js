@@ -54,16 +54,15 @@ function setup() {
 }
 
 function update(world) {
-  const d1 = world.d1;
-  const d2 = world.d2;
-  const d3 = world.d3;
+  let d1 = world.d1;
+  let d2 = world.d2;
+  let d3 = world.d3;
+  let p1 = world.p1;
+  let p2 = world.p2;
+  let p3 = world.p3;
 
-  const p1 = world.p1;
-  const p2 = world.p2;
-  const p3 = world.p3;
-
-  d2 = d.updateDetectorV(d2, p1, p2);
   d1 = d.updateDetectorV(d1, p1, p2);
+  d2 = d.updateDetectorV(d2, p1, p2);
   d3 = d.updateDetectorH(d3, p3, p3);
 }
 
