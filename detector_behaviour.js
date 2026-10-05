@@ -62,23 +62,23 @@ function moveDetectorH(d) {
 }
 
 //Vertical detector detecting particle
-function detectorDetectsParticleV(d, p) {
+function isParticleDetectedV(d, p) {
   return d.start + d.width >= p.start && d.start <= p.start + p.width;
 }
 
 function chooseColorV(d, pOne, pTwo) {
-  return detectorDetectsParticleV(d, pOne) || detectorDetectsParticleV(d, pTwo)
+  return isParticleDetectedV(d, pOne) || isParticleDetectedV(d, pTwo)
     ? r.RED
     : r.WHITE;
 }
 
 //Horizontal detector detecting particle
-function detectorDetectsParticleH(d, p) {
+function isParticleDetectedH(d, p) {
   return d.y + d.height >= p.y && d.y <= p.y + p.height;
 }
 
 function chooseColorH(d, pOne, pTwo) {
-  return detectorDetectsParticleH(d, pOne) || detectorDetectsParticleH(d, pTwo)
+  return isParticleDetectedH(d, pOne) || isParticleDetectedH(d, pTwo)
     ? r.RED
     : r.WHITE;
 }
