@@ -32,9 +32,9 @@ function createParticle(start, y, width, height) {
   };
 }
 
-//for moving vertical detector
+//These functions moves vertical detector in between bounds
 
-function detectorVelocityV(d) {
+function getUpdatedVelocityV(d) {
   return hasReachedBoundsV(d) ? -d.velocity : d.velocity;
 }
 
@@ -43,12 +43,12 @@ function hasReachedBoundsV(d) {
 }
 
 function moveDetectorV(d) {
-  d.velocity = detectorVelocityV(d);
+  d.velocity = getUpdatedVelocityV(d);
   return d.start + d.velocity;
 }
 
-//for moving horizontal detector
-function detectorVelocityH(d) {
+//these function moves horizontal detector in between bounds
+function getUpdatedVelocityH(d) {
   return hasReachedBoundsH(d) ? -d.velocity : d.velocity;
 }
 
@@ -57,16 +57,17 @@ function hasReachedBoundsH(d) {
 }
 
 function moveDetectorH(d) {
-  d.velocity = detectorVelocityH(d);
+  d.velocity = getUpdatedVelocityH(d);
   return d.y + d.velocity;
 }
 
 //Vertical detector detecting particle
+
 function isParticleDetectedV(d, p) {
   return d.start + d.width >= p.start && d.start <= p.start + p.width;
 }
 
-function chooseColorV(d, pOne, pTwo) {
+function getUpdatedColorV(d, pOne, pTwo) {
   return isParticleDetectedV(d, pOne) || isParticleDetectedV(d, pTwo)
     ? r.RED
     : r.WHITE;
@@ -77,7 +78,7 @@ function isParticleDetectedH(d, p) {
   return d.y + d.height >= p.y && d.y <= p.y + p.height;
 }
 
-function chooseColorH(d, pOne, pTwo) {
+function getUpdatedColorH(d, pOne, pTwo) {
   return isParticleDetectedH(d, pOne) || isParticleDetectedH(d, pTwo)
     ? r.RED
     : r.WHITE;
@@ -97,9 +98,9 @@ module.exports = {
   createDetector,
   createParticle,
   moveDetectorH,
-  chooseColorV,
+  getUpdatedColorV,
   drawParticles,
   drawDetectors,
   moveDetectorV,
-  chooseColorH,
+  getUpdatedColorH,
 };
