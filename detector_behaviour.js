@@ -42,7 +42,7 @@ function hasReachedBoundsV(d) {
   return d.start < d.lowerBound || d.start > d.upperBound;
 }
 
-function traverseDetectorV(d) {
+function moveDetectorV(d) {
   d.velocity = detectorVelocityV(d);
   return d.start + d.velocity;
 }
@@ -56,7 +56,7 @@ function hasReachedBoundsH(d) {
   return d.y < d.lowerBound || d.y > d.upperBound;
 }
 
-function traverseDetectorH(d) {
+function moveDetectorH(d) {
   d.velocity = detectorVelocityH(d);
   return d.y + d.velocity;
 }
@@ -96,10 +96,10 @@ function drawDetectors(d) {
 module.exports = {
   createDetector,
   createParticle,
-  traverseDetectorH,
+  moveDetectorH,
   chooseColorV,
   drawParticles,
   drawDetectors,
-  traverseDetectorV,
+  moveDetectorV,
   chooseColorH,
 };
