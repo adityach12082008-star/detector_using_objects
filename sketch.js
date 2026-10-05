@@ -62,13 +62,9 @@ function update(world) {
   const p2 = world.p2;
   const p3 = world.p3;
 
-  d2.color = d.getUpdatedColorV(d2, p1, p2);
-  d1.color = d.getUpdatedColorV(d1, p1, p2);
-  d3.color = d.getUpdatedColorH(d3, p3, p3);
-
-  d1.start = d.moveDetectorV(d1);
-  d2.start = d.moveDetectorV(d2);
-  d3.y = d.moveDetectorH(d3);
+  d2 = d.updateDetectorV(d2, p1, p2);
+  d1 = d.updateDetectorV(d1, p1, p2);
+  d3 = d.updateDetectorH(d3, p3, p3);
 }
 
 function draw(world) {
